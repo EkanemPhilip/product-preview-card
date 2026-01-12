@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Preview Card</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Fraunces:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <main class="card" id="previewCard">
+    <picture class="card-image">
+      <source media="(min-width: 768px)" srcset="images/image-product-desktop.jpg">
+      <img src="images/image-product-mobile.jpg" alt="Gabrielle Essence Eau De Parfum">
+    </picture>
+
+    <section class="card-content">
+      <p class="category">Perfume</p>
+      <h1 class="title">Gabrielle Essence Eau De Parfum</h1>
+      <p class="description">
+        A floral, solar and voluptuous interpretation composed by Olivier Polge,
+        Perfumer-Creator for the House of CHANEL.
+      </p>
+
+      <div class="price">
+        <span class="current-price">$149.99</span>
+        <span class="old-price">$169.99</span>
+      </div>
+
+      <button class="btn">
+        <img src="images/icon-cart.svg" alt="">
+        Add to Cart
+      </button>
+    </section>
+  </main>
+
+  <div class="preview-toggle">
+    <button class="toggle-btn" id="desktopBtn">Desktop Design</button>
+    <button class="toggle-btn" id="mobileBtn">Mobile Design</button>
+  </div>
+
+  <script>
+    const previewCard = document.getElementById('previewCard');
+    const mobileBtn = document.getElementById('mobileBtn');
+    const desktopBtn = document.getElementById('desktopBtn');
+
+    mobileBtn.addEventListener('click', () => {
+      previewCard.classList.add('mobile-view');
+      previewCard.classList.remove('desktop-view');
+      mobileBtn.classList.add('active');
+      desktopBtn.classList.remove('active');
+    });
+
+    desktopBtn.addEventListener('click', () => {
+      previewCard.classList.add('desktop-view');
+      previewCard.classList.remove('mobile-view');
+      desktopBtn.classList.add('active');
+      mobileBtn.classList.remove('active');
+    });
+
+    // Default to desktop view
+    desktopBtn.classList.add('active');
+    previewCard.classList.add('desktop-view');
+  </script>
+</body>
+</html>
